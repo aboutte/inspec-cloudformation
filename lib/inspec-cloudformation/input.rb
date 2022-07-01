@@ -41,15 +41,16 @@ module InspecPlugins::CloudFormation
     def fetch(profile_name, input_name)
       # skip any input name that is an invalid cloudformation stack name to keep things quick...no need to make the AWS API call.
       return nil if input_name.include?('_')
-
-      cf = Aws::CloudFormation::Client.new
+      return nil unless input_name.include?('/')
 
       # input format will be "cloudformation stack name / output name"
       stack_name = input_name.split('/').first
       output_name = input_name.split('/').last
 
-      logger.info format("The stack name is  %s", stack_name)
-      logger.info format("The output name is  %s", output_name)
+      logger.debug format("The stack name is  %s", stack_name)
+      logger.debug format("The output name is  %s", output_name)
+
+      cf = Aws::CloudFormation::Client.new
 
       name = { stack_name: stack_name }
       resp = cf.describe_stacks(name)
@@ -59,6 +60,9 @@ module InspecPlugins::CloudFormation
           next unless output['output_key'] == output_name
           return output['output_value']
       end
+
+      # if no CloudFormation output found
+      return nil
     end
 
     private
