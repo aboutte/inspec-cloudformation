@@ -2,7 +2,7 @@
 # the version stamp, and provide a clean way for the gemspec
 # to learn the current version.
 module InspecPlugins
-  module Vault
-    VERSION = "0.0.1".freeze
+  module CloudFormation
+    VERSION = "0.0.2".freeze
   end
 end

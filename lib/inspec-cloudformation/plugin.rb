@@ -9,15 +9,15 @@
 # Presumably this is light
 require "inspec-cloudformation/version"
 module InspecPlugins
-  module Vault
+  module CloudFormation
     class Plugin < ::Inspec.plugin(2)
       # Internal machine name of the plugin. InSpec will use this in errors, etc.
       plugin_name :'inspec-cloudformation'
 
       # Define an Input plugin type.
-      input :vault do
+      input :cloudformation do
         require_relative "input"
-        InspecPlugins::Vault::Input
+        InspecPlugins::CloudFormation::Input
       end
 
     end

@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.name          = "inspec-cloudformation"
 
   # It is polite to namespace your plugin under InspecPlugins::YourPluginInCamelCase
-  spec.version       = InspecPlugins::Vault::VERSION
+  spec.version       = InspecPlugins::CloudFormation::VERSION
   spec.authors       = ["Andy Boutte"]
   spec.email         = ["andyboutte@gmail.com"]
   spec.summary       = "Use CloudFormation Outputs in your InSpec profiles"

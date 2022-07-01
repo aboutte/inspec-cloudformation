@@ -2,10 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-# gem "inspec-bin"
 gem 'rake-release'
-
-
 
 group :development do
   gem "chefstyle", "2.2.0"
